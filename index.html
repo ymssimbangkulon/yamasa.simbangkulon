@@ -808,11 +808,9 @@
 
       if (hasil.status.includes("Lulus")) {
         html += `<p class="success">Silakan hubungi admin YMS Simbang Kulon melalui WhatsApp di <strong>085134465945</strong> untuk mengetahui jadwal seleksi selanjutnya.</p>`;
+        html += `<p class="no success">Terima kasih.</p>`;
       }
-      if (hasil.status.includes("Belum Lulus")) {
-        html += `<p class="success">Terima kasih.</p>`;
-      }
-
+      
       resultDiv.innerHTML = html;
     }
   </script>

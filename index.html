@@ -2,59 +2,816 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PENGUMUMAN PEREKRUTAN TENAGA PENDIDIK / GURU YMS SIMBANG KULON</title>
-    <style>
-        body { font-family: Arial, sans-serif; padding: 20px; background-color: #f8f9fa; }
-        .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        img.logo { max-width: 120px; display: block; margin: 0 auto 20px; }
-        h1 { text-align: center; color: #007B5E; }
-        p { text-align: justify; }
-        input[type="text"] { width: 100%; padding: 10px; margin: 20px 0; border: 1px solid #ccc; border-radius: 4px; }
-        .result { padding: 15px; background: #e9ecef; border-radius: 4px; margin-top: 20px; }
-        .lulus { color: green; font-weight: bold; }
-        .tidak-lulus { color: red; font-weight: bold; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pengumuman Kelulusan YMS Simbang Kulon</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f8f9fa;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    img.logo {
+      max-width: 100px;
+      display: block;
+      margin: auto;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    input, button {
+      padding: 10px;
+      margin-top: 10px;
+      width: 100%;
+      font-size: 16px;
+    }
+    .result {
+      margin-top: 20px;
+      border-top: 1px solid #ccc;
+      padding-top: 20px;
+    }
+    .success {
+      color: green;
+      font-weight: bold;
+    }
+    .fail {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-<div class="container">
-    <img src="yms logo.jpg" alt="Logo YMS" class="logo">
-    <h1>PENGUMUMAN PEREKRUTAN TENAGA PENDIDIK / GURU YMS SIMBANG KULON</h1>
-    <p>Assalamu’alaikum Wr Wb</p>
-    <p>Terima kasih atas partisipasi Saudara / Saudari dalam proses perekrutan tenaga pendidik / guru baru di Yayasan Madrasah Salafiyah Simbang Kulon. Kami ucapkan selamat bagi yang lulus ke tahap selanjutnya, dan bagi yang belum lulus data lamaran Saudara / Saudari tetap akan tersimpan di database kami, dan jika suatu saat ada perekrutan lagi maka tidak perlu mengirim lamaran kembali.</p>
-    <p>Wassalamu’alaikum Wr Wb</p>
-    <p style="text-align:right;"><strong>Ttd<br>Pengurus YMS Simbang Kulon</strong></p>
+  <div class="container">
+    <img src="yms logo.jpg" alt="Logo YMS" class="logo" />
+    <h1>PENGUMUMAN PEREKRUTAN TENAGA PENDIDIK / GURU</h1>
+    <h2>YMS SIMBANG KULON</h2>
 
-    <h2>Cek Status Kelulusan</h2>
-    <input type="text" id="phoneInput" placeholder="Masukkan nomor HP terdaftar">
-    <div id="result" class="result" style="display:none;"></div>
-</div>
+    <p><strong>Assalamu’alaikum Wr Wb</strong><br>
+      Terima kasih atas partisipasi Saudara / Saudari dalam proses perekrutan tenaga pendidik / guru baru di Yayasan Madrasah Salafiyah Simbang Kulon. Kami ucapkan selamat bagi yang lulus ke tahap selanjutnya, dan bagi yang belum lulus, data lamaran Saudara / Saudari tetap akan tersimpan di database kami. Jika suatu saat ada perekrutan kembali, maka tidak perlu mengirimkan lamaran ulang.<br>
+      <strong>Wassalamu’alaikum Wr Wb</strong><br><br>
+      <em>TTD<br>Pengurus YMS Simbang Kulon</em>
+    </p>
 
-<script>
-    const data = [{'No': 1, 'Tanggal': Timestamp('2022-03-08 00:00:00'), 'Tgl Lahir': Timestamp('2001-07-03 00:00:00'), 'Nama': 'Nurul Amalia', 'Alamat': 'Kertijayan Gg 13', 'Pendidikan Terakhir': 'MA', 'Nama Sekolah / Universitas': 'MAS Simbang Kulon', 'Melamar Sebagai Guru': "Al Qur'an", 'No Hp': 85705019925, 'Dinyatakan': 'Lulus Tahap Selanjutnya'}, {'No': 2, 'Tanggal': Timestamp('2024-07-24 00:00:00'), 'Tgl Lahir': Timestamp('1999-01-29 00:00:00'), 'Nama': 'Alma Rosalia Hilda', 'Alamat': 'Pakisputih, kdw', 'Pendidikan Terakhir': 'Ponpes', 'Nama Sekolah / Universitas': 'Al Fadlillah  - Kudus', 'Melamar Sebagai Guru': "Al Qur'an", 'No Hp': 895414448997, 'Dinyatakan': 'Lulus Tahap Selanjutnya'}, {'No': 3, 'Tanggal': Timestamp('2021-05-23 00:00:00'), 'Tgl Lahir': Timestamp('1997-06-11 00:00:00'), 'Nama': 'Uliya Dzikriya, S.S', 'Alamat': 'Simbang Kulon Gg 3', 'Pendidikan Terakhir': 'S1 Sastra Inggris', 'Nama Sekolah / Universitas': 'UNNES Semarang', 'Melamar Sebagai Guru': "Al Qur'an", 'No Hp': 85641295507, 'Dinyatakan': 'Lulus Tahap Selanjutnya'}, {'No': 4, 'Tanggal': Timestamp('2024-10-14 00:00:00'), 'Tgl Lahir': Timestamp('1999-07-09 00:00:00'), 'Nama': 'Alisah Qotrun Nada, S.Ag', 'Alamat': 'Simbang Kulon Gg 3', 'Pendidikan Terakhir': "S1 Ilmu Al-Qur'an & Tafsir", 'Nama Sekolah / Universitas': 'IIQ Yogyakarta', 'Melamar Sebagai Guru': "Al Qur'an", 'No Hp': 81542101681, 'Dinyatakan': 'Lulus Tahap Selanjutnya'}, {'No': 5, 'Tanggal': Timestamp('2025-05-31 00:00:00'), 'Tgl Lahir': Timestamp('1996-06-06 00:00:00'), 'Nama': 'M. Irfan Maulana', 'Alamat': 'Kuripan Yosorejo', 'Pendidikan Terakhir': 'S1 Bahasa Arab', 'Nama Sekolah / Universitas': 'STAINI Bogor', 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 85700445300, 'Dinyatakan': 'Lulus Tahap Selanjutnya'}, {'No': 6, 'Tanggal': Timestamp('2025-05-31 00:00:00'), 'Tgl Lahir': Timestamp('1999-03-03 00:00:00'), 'Nama': 'Reza Arif Maulana, S.Pd', 'Alamat': 'Wonoyoso Gg 4', 'Pendidikan Terakhir': 'S1 Bahasa Arab', 'Nama Sekolah / Universitas': 'UIN Gusdur', 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 89692116116, 'Dinyatakan': 'Lulus Tahap Selanjutnya'}, {'No': 7, 'Tanggal': Timestamp('2025-05-28 00:00:00'), 'Tgl Lahir': Timestamp('1998-12-15 00:00:00'), 'Nama': 'Ahmad Zakirin, S.Pd', 'Alamat': 'Paweden Gg 6', 'Pendidikan Terakhir': 'S1 Bahasa Arab', 'Nama Sekolah / Universitas': "Ma'had Aly Darul Falah Amtsilati", 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 895612959036, 'Dinyatakan': 'Lulus Tahap Selanjutnya'}, {'No': 8, 'Tanggal': Timestamp('2025-05-27 00:00:00'), 'Tgl Lahir': Timestamp('2001-06-10 00:00:00'), 'Nama': 'Muhammad Mursyid, S.Pd', 'Alamat': 'Proto Kdw', 'Pendidikan Terakhir': 'S1 Bahasa Arab', 'Nama Sekolah / Universitas': 'UIN Gusdur', 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 85326911833, 'Dinyatakan': 'Lulus Tahap Selanjutnya'}, {'No': 9, 'Tanggal': Timestamp('2025-05-11 00:00:00'), 'Tgl Lahir': Timestamp('1995-06-10 00:00:00'), 'Nama': 'Muhammad Irsyad, S.Pd', 'Alamat': 'Coprayan, Buaran', 'Pendidikan Terakhir': 'S1 Bahasa Arab', 'Nama Sekolah / Universitas': 'UIN Gusdur', 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 85642922336, 'Dinyatakan': 'Lulus Tahap Selanjutnya'}, {'No': 10, 'Tanggal': Timestamp('2025-05-21 00:00:00'), 'Tgl Lahir': Timestamp('1995-08-29 00:00:00'), 'Nama': 'M. Burhanudin, Lc. M.A', 'Alamat': 'Karangjati Wides', 'Pendidikan Terakhir': 'S2 Syariah', 'Nama Sekolah / Universitas': 'UNIV Al Ahgaf Yaman', 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 81229768053, 'Dinyatakan': 'Lulus Tahap Selanjutnya'}, {'No': 11, 'Tanggal': Timestamp('2025-05-28 00:00:00'), 'Tgl Lahir': Timestamp('1992-12-21 00:00:00'), 'Nama': 'Akhmad Wildan, S.Pd', 'Alamat': 'Samborejo Tirto', 'Pendidikan Terakhir': 'S1 B Arab', 'Nama Sekolah / Universitas': 'STAIN PKL', 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 85640642561, 'Dinyatakan': 'Lulus Tahap Selanjutnya'}, {'No': 12, 'Tanggal': Timestamp('2025-05-28 00:00:00'), 'Tgl Lahir': Timestamp('1995-08-28 00:00:00'), 'Nama': 'Ahmad Khafidin, S.Pd. M.Pd', 'Alamat': 'Sidodadi Kdw', 'Pendidikan Terakhir': 'S1 B Arab', 'Nama Sekolah / Universitas': 'UIN Walisongo', 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 85838963474, 'Dinyatakan': 'Lulus Tahap Selanjutnya'}, {'No': 13, 'Tanggal': Timestamp('2025-05-10 00:00:00'), 'Tgl Lahir': Timestamp('1997-12-29 00:00:00'), 'Nama': 'Khoirul Umam Muzaki', 'Alamat': 'Salakbrojo', 'Pendidikan Terakhir': 'S2', 'Nama Sekolah / Universitas': 'UIN Gusdur', 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 81564702049, 'Dinyatakan': 'Lulus Tahap Selanjutnya'}, {'No': 14, 'Tanggal': Timestamp('2025-05-16 00:00:00'), 'Tgl Lahir': Timestamp('2002-12-16 00:00:00'), 'Nama': 'Muhammad Fijaj Farkhani Faza, S.Pd.', 'Alamat': 'Kradenan Gg 1', 'Pendidikan Terakhir': 'S1 B Arab', 'Nama Sekolah / Universitas': 'UIN Walisongo', 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 87737203222, 'Dinyatakan': 'Lulus Tahap Selanjutnya'}, {'No': 15, 'Tanggal': Timestamp('2025-05-19 00:00:00'), 'Tgl Lahir': Timestamp('2002-02-17 00:00:00'), 'Nama': 'Muhammad Thoriqul Firdaus', 'Alamat': 'Simbang Wetan', 'Pendidikan Terakhir': 'S1 B Arab', 'Nama Sekolah / Universitas': 'UIN Gusdur', 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 87871581418, 'Dinyatakan': 'Lulus Tahap Selanjutnya'}, {'No': 16, 'Tanggal': Timestamp('2025-03-12 00:00:00'), 'Tgl Lahir': Timestamp('1997-03-06 00:00:00'), 'Nama': 'Muchammad Fikro Shofi, S.Pd', 'Alamat': 'Krapyak Kidul Gg 5', 'Pendidikan Terakhir': 'S1 B Arab + Ponpes', 'Nama Sekolah / Universitas': 'UIN Gusdur', 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 85808160816, 'Dinyatakan': 'Lulus Tahap Selanjutnya'}, {'No': 17, 'Tanggal': Timestamp('2025-05-14 00:00:00'), 'Tgl Lahir': Timestamp('2001-10-15 00:00:00'), 'Nama': 'Muhammad Fatkhul Ulum, S.Pd', 'Alamat': 'Subah Batang', 'Pendidikan Terakhir': 'S1 B Arab', 'Nama Sekolah / Universitas': 'UIN Gusdur', 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 85870060256, 'Dinyatakan': 'Lulus Tahap Selanjutnya'}, {'No': 18, 'Tanggal': Timestamp('2025-05-15 00:00:00'), 'Tgl Lahir': Timestamp('2002-09-15 00:00:00'), 'Nama': 'Muhammad Muslih, S.Pd', 'Alamat': 'Kradenan Gg 6', 'Pendidikan Terakhir': 'S1 B Arab', 'Nama Sekolah / Universitas': 'UIN Gusdur', 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 85641500378, 'Dinyatakan': 'Lulus Tahap Selanjutnya'}, {'No': 19, 'Tanggal': Timestamp('2025-05-11 00:00:00'), 'Tgl Lahir': Timestamp('2000-11-06 00:00:00'), 'Nama': 'M. Barul Fatikhin, S.Pd', 'Alamat': 'Kraton Pekalongan', 'Pendidikan Terakhir': 'S1 B Arab', 'Nama Sekolah / Universitas': 'UIN Gusdur', 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 85640218933, 'Dinyatakan': 'Lulus Tahap Selanjutnya'}, {'No': 20, 'Tanggal': Timestamp('2025-05-10 00:00:00'), 'Tgl Lahir': Timestamp('1996-12-04 00:00:00'), 'Nama': 'Khilmi Hidayatulloh, S.Pd', 'Alamat': 'Banyurip Ageng Gg 3C', 'Pendidikan Terakhir': 'S1 B Arab', 'Nama Sekolah / Universitas': 'UIN Walisongo', 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 895385225970, 'Dinyatakan': 'Lulus Tahap Selanjutnya'}, {'No': 21, 'Tanggal': Timestamp('2025-05-17 00:00:00'), 'Tgl Lahir': Timestamp('2025-05-15 00:00:00'), 'Nama': "M. As'ad Lahiq, S.Pd", 'Alamat': 'Banyurip Alit', 'Pendidikan Terakhir': 'S1 B Arab', 'Nama Sekolah / Universitas': 'UNSIQ Wonosobo', 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 81542554956, 'Dinyatakan': 'Lulus Tahap Selanjutnya'}, {'No': 22, 'Tanggal': Timestamp('2025-05-31 00:00:00'), 'Tgl Lahir': Timestamp('1998-06-04 00:00:00'), 'Nama': 'Muhammad Miftahudin, S.Pd', 'Alamat': 'Banyurip Alit Gg 5', 'Pendidikan Terakhir': 'S2 Bahasa Arab', 'Nama Sekolah / Universitas': 'UIN Gusdur', 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 85641210363, 'Dinyatakan': 'Lulus Tahap Selanjutnya'}, {'No': 23, 'Tanggal': Timestamp('2025-05-29 00:00:00'), 'Tgl Lahir': Timestamp('1995-03-03 00:00:00'), 'Nama': 'Khotibul Umam, S.Hum', 'Alamat': 'Banyurip Alit Gg 3B', 'Pendidikan Terakhir': 'S1 Bahasa Arab', 'Nama Sekolah / Universitas': 'UIN Maulana Malik Ibrahim Malang', 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 85713886055, 'Dinyatakan': 'Lulus Tahap Selanjutnya'}, {'No': 24, 'Tanggal': Timestamp('2025-05-25 00:00:00'), 'Tgl Lahir': Timestamp('1993-12-28 00:00:00'), 'Nama': 'Nur Saidah, S.Pd', 'Alamat': 'Yosorejo Gg 4', 'Pendidikan Terakhir': 'S1 PAUD', 'Nama Sekolah / Universitas': 'UNIV Terbuka', 'Melamar Sebagai Guru': 'RA / TK', 'No Hp': 85868536830, 'Dinyatakan': 'Lulus Tahap Selanjutnya'}, {'No': 25, 'Tanggal': Timestamp('2025-05-28 00:00:00'), 'Tgl Lahir': Timestamp('2000-03-28 00:00:00'), 'Nama': 'Chasanal Irnina Aqnah', 'Alamat': 'Jenggot Gg 2', 'Pendidikan Terakhir': 'S1 PAUD', 'Nama Sekolah / Universitas': 'UIN Gusdur', 'Melamar Sebagai Guru': 'RA / TK', 'No Hp': 85642907704, 'Dinyatakan': 'Lulus Tahap Selanjutnya'}, {'No': 26, 'Tanggal': Timestamp('2025-05-22 00:00:00'), 'Tgl Lahir': Timestamp('1995-05-18 00:00:00'), 'Nama': 'Ponco Puji Lestari, S.Pd', 'Alamat': 'Tangkil Tengah', 'Pendidikan Terakhir': 'S1 PAUD', 'Nama Sekolah / Universitas': 'Univ Terbuka', 'Melamar Sebagai Guru': 'RA / TK', 'No Hp': 82314825917, 'Dinyatakan': 'Lulus Tahap Selanjutnya'}, {'No': 27, 'Tanggal': Timestamp('2025-05-13 00:00:00'), 'Tgl Lahir': Timestamp('1999-09-02 00:00:00'), 'Nama': 'Saroro Dewi Asmo Ranti, S.Pd', 'Alamat': 'Perum Karanganyar Tirto', 'Pendidikan Terakhir': 'S1 PAUD', 'Nama Sekolah / Universitas': 'IAIN Pekalongan', 'Melamar Sebagai Guru': 'RA / TK', 'No Hp': 85713358578, 'Dinyatakan': 'Lulus Tahap Selanjutnya'}, {'No': 28, 'Tanggal': Timestamp('2025-05-31 00:00:00'), 'Tgl Lahir': Timestamp('1997-10-26 00:00:00'), 'Nama': 'Khoirul Imam, S.Pd', 'Alamat': 'menjangan bojong', 'Pendidikan Terakhir': 'S1 Tadris Matematika', 'Nama Sekolah / Universitas': 'UIN Gusdur', 'Melamar Sebagai Guru': 'Matematika', 'No Hp': 85601362663, 'Dinyatakan': 'Lulus Tahap Selanjutnya'}, {'No': 29, 'Tanggal': Timestamp('2025-05-31 00:00:00'), 'Tgl Lahir': Timestamp('1996-08-19 00:00:00'), 'Nama': 'Moh. Fazal Muttaqun, S.Pd', 'Alamat': 'Wiroditan Bojong', 'Pendidikan Terakhir': 'S1 Matematika', 'Nama Sekolah / Universitas': 'UNIKAL', 'Melamar Sebagai Guru': 'Matematika', 'No Hp': 85642947581, 'Dinyatakan': 'Lulus Tahap Selanjutnya'}, {'No': 30, 'Tanggal': Timestamp('2025-05-29 00:00:00'), 'Tgl Lahir': Timestamp('1997-10-20 00:00:00'), 'Nama': 'Muhammad Zakaria Isna Khauli, S.Pd', 'Alamat': 'Banyurip Alit Gg 5', 'Pendidikan Terakhir': 'S1 Matematika', 'Nama Sekolah / Universitas': 'UNIKAL', 'Melamar Sebagai Guru': 'Matematika', 'No Hp': 85826213414, 'Dinyatakan': 'Lulus Tahap Selanjutnya'}, {'No': 31, 'Tanggal': Timestamp('2025-03-27 00:00:00'), 'Tgl Lahir': Timestamp('2002-02-06 00:00:00'), 'Nama': 'Permadi Pramumita, S.Pd', 'Alamat': 'Karangsari Karanganyar', 'Pendidikan Terakhir': 'S1 Matematika', 'Nama Sekolah / Universitas': 'UIN Gusdur', 'Melamar Sebagai Guru': 'Matematika', 'No Hp': 8980487426, 'Dinyatakan': 'Lulus Tahap Selanjutnya'}, {'No': 32, 'Tanggal': Timestamp('2025-05-27 00:00:00'), 'Tgl Lahir': Timestamp('1998-11-06 00:00:00'), 'Nama': 'M. Bagus Al Basyari, S.Pd', 'Alamat': 'Paesan Kebumen', 'Pendidikan Terakhir': 'S1 Matematika', 'Nama Sekolah / Universitas': 'UNNES', 'Melamar Sebagai Guru': 'Matematika', 'No Hp': 85866066630, 'Dinyatakan': 'Lulus Tahap Selanjutnya'}, {'No': 33, 'Tanggal': Timestamp('2025-05-28 00:00:00'), 'Tgl Lahir': Timestamp('2003-07-01 00:00:00'), 'Nama': "M. Khusnun Ni'am, S.Pd", 'Alamat': 'Setono Gg 4', 'Pendidikan Terakhir': 'S1 Matematika', 'Nama Sekolah / Universitas': 'UIN Gusdur', 'Melamar Sebagai Guru': 'Matematika', 'No Hp': 83827087473, 'Dinyatakan': 'Lulus Tahap Selanjutnya'}, {'No': 34, 'Tanggal': Timestamp('2025-05-31 00:00:00'), 'Tgl Lahir': Timestamp('2002-09-28 00:00:00'), 'Nama': 'Mukhammad Eko Setiawan, S.Pd', 'Alamat': 'Pangkah Karangdadap', 'Pendidikan Terakhir': 'S1 Tadris Matematika', 'Nama Sekolah / Universitas': 'UIN Gusdur', 'Melamar Sebagai Guru': 'Matematika', 'No Hp': 85225239897, 'Dinyatakan': 'Lulus Tahap Selanjutnya'}, {'No': 35, 'Tanggal': Timestamp('2025-05-13 00:00:00'), 'Tgl Lahir': Timestamp('1993-07-22 00:00:00'), 'Nama': 'M. Furqon Zaenudin, S.Ag', 'Alamat': 'Pringlangu Gg 8', 'Pendidikan Terakhir': "S1 Ilmu Al-Qur'an & Tafsir", 'Nama Sekolah / Universitas': 'UNSIQ Wonosobo', 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 81237680146, 'Dinyatakan': 'Belum Lulus'}, {'No': 36, 'Tanggal': Timestamp('2025-05-30 00:00:00'), 'Tgl Lahir': Timestamp('2000-02-28 00:00:00'), 'Nama': 'Mukhammad Fatkhullah, S.Ag', 'Alamat': 'Banjiran Warungasem', 'Pendidikan Terakhir': "S1 Ilmu Al-Qur'an & Tafsir", 'Nama Sekolah / Universitas': 'UIN Mataram', 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 82132952190, 'Dinyatakan': 'Belum Lulus'}, {'No': 37, 'Tanggal': Timestamp('2025-05-09 00:00:00'), 'Tgl Lahir': Timestamp('1994-08-16 00:00:00'), 'Nama': 'A. Ittaqi Abadan, S.Pd', 'Alamat': 'Karanganyar Tirto', 'Pendidikan Terakhir': 'S1 PAI', 'Nama Sekolah / Universitas': 'IAIN Pekalongan', 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 82313444971, 'Dinyatakan': 'Belum Lulus'}, {'No': 38, 'Tanggal': Timestamp('2025-05-11 00:00:00'), 'Tgl Lahir': Timestamp('1994-09-09 00:00:00'), 'Nama': 'Muhsinin, S.Ag', 'Alamat': 'Kradenan Gg 4', 'Pendidikan Terakhir': 'S1 Fiqih Ushul Fiqih', 'Nama Sekolah / Universitas': "Ma'had Aly Lirboyo", 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 85900362786, 'Dinyatakan': 'Belum Lulus'}, {'No': 39, 'Tanggal': Timestamp('2025-05-12 00:00:00'), 'Tgl Lahir': Timestamp('1995-10-07 00:00:00'), 'Nama': 'M. Husni Mubarok, S.Ag', 'Alamat': 'Sapugarut Gg 6', 'Pendidikan Terakhir': 'S1 PAI Ushul Fiqih', 'Nama Sekolah / Universitas': "Ma'had Aly Lirboyo", 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 82322939277, 'Dinyatakan': 'Belum Lulus'}, {'No': 40, 'Tanggal': Timestamp('2025-05-17 00:00:00'), 'Tgl Lahir': Timestamp('1996-10-10 00:00:00'), 'Nama': 'Ferry Khusnil Arief, S.Ag', 'Alamat': 'Banyurip Ageng', 'Pendidikan Terakhir': 'S1 PAI Ushul Fiqih', 'Nama Sekolah / Universitas': "Ma'had Aly Lirboyo", 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 85856531594, 'Dinyatakan': 'Belum Lulus'}, {'No': 41, 'Tanggal': Timestamp('2025-05-11 00:00:00'), 'Tgl Lahir': Timestamp('1992-01-21 00:00:00'), 'Nama': 'Ahmad Farid, S.Ag', 'Alamat': 'Karangdowo, Kdw', 'Pendidikan Terakhir': 'S1 Fiqih Ushul Fiqih', 'Nama Sekolah / Universitas': "Ma'had Aly Lirboyo", 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 85702473702, 'Dinyatakan': 'Belum Lulus'}, {'No': 42, 'Tanggal': Timestamp('2025-05-27 00:00:00'), 'Tgl Lahir': Timestamp('1995-06-27 00:00:00'), 'Nama': 'Muhammad Tahta Dzilir Rohman, S.Ag', 'Alamat': 'Degayu, Pkl Utara', 'Pendidikan Terakhir': 'S1 Tasawuf', 'Nama Sekolah / Universitas': "Ma'had Aly Sarang Rembang", 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 85899008025, 'Dinyatakan': 'Belum Lulus'}, {'No': 43, 'Tanggal': Timestamp('2025-05-28 00:00:00'), 'Tgl Lahir': Timestamp('1999-06-15 00:00:00'), 'Nama': 'Muhammad Izzulhaq, S.Ag', 'Alamat': 'Medono', 'Pendidikan Terakhir': 'S1 Fiqih Ushul Fiqih', 'Nama Sekolah / Universitas': "Ma'had Aly Lirboyo", 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 81578177423, 'Dinyatakan': 'Belum Lulus'}, {'No': 44, 'Tanggal': Timestamp('2025-06-02 00:00:00'), 'Tgl Lahir': Timestamp('1991-02-24 00:00:00'), 'Nama': 'Nurul Falah, S.Pd', 'Alamat': 'Perum Graha Naya Kampil', 'Pendidikan Terakhir': 'S1 PAI', 'Nama Sekolah / Universitas': 'IAIN Pekalongan', 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 85329994570, 'Dinyatakan': 'Belum Lulus'}, {'No': 45, 'Tanggal': Timestamp('2025-01-07 00:00:00'), 'Tgl Lahir': Timestamp('2001-01-02 00:00:00'), 'Nama': 'Dina Taflilah, S.Pd', 'Alamat': 'Bligo', 'Pendidikan Terakhir': 'S1 B Arab', 'Nama Sekolah / Universitas': 'UIN Walisongo', 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 85741766073, 'Dinyatakan': 'Belum Lulus'}, {'No': 46, 'Tanggal': Timestamp('2025-04-20 00:00:00'), 'Tgl Lahir': Timestamp('2002-09-26 00:00:00'), 'Nama': 'Jazilatul Athiyah, S.Hum', 'Alamat': 'Simbang Kulon Gg 4', 'Pendidikan Terakhir': 'S1 B. Arab', 'Nama Sekolah / Universitas': 'UIN Salatiga', 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 88980866970, 'Dinyatakan': 'Belum Lulus'}, {'No': 47, 'Tanggal': Timestamp('2025-05-11 00:00:00'), 'Tgl Lahir': Timestamp('2004-02-19 00:00:00'), 'Nama': 'Farah Anjalina, S.Ag', 'Alamat': 'Banjiran Batang', 'Pendidikan Terakhir': 'S1 B Arab', 'Nama Sekolah / Universitas': "Ma'had Aly Darul Falah Amtsilati", 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 85724439693, 'Dinyatakan': 'Belum Lulus'}, {'No': 48, 'Tanggal': Timestamp('2025-05-15 00:00:00'), 'Tgl Lahir': Timestamp('1989-01-05 00:00:00'), 'Nama': 'Ahmad Muhaimin, S.Pd', 'Alamat': 'Wonokerto, Wides', 'Pendidikan Terakhir': 'S1 B Arab', 'Nama Sekolah / Universitas': 'STAINI Bogor', 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 85642579220, 'Dinyatakan': 'Belum Lulus'}, {'No': 49, 'Tanggal': Timestamp('2025-05-28 00:00:00'), 'Tgl Lahir': Timestamp('1999-01-10 00:00:00'), 'Nama': 'Silvia Qothrunnada, S.Pd', 'Alamat': 'Banyurip Alit 3B', 'Pendidikan Terakhir': 'S1 Bahasa Arab', 'Nama Sekolah / Universitas': 'UIN Gusdur', 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 81548622119, 'Dinyatakan': 'Belum Lulus'}, {'No': 50, 'Tanggal': Timestamp('2025-05-31 00:00:00'), 'Tgl Lahir': Timestamp('1983-02-25 00:00:00'), 'Nama': 'Sofyan Atsauri, S.Pd', 'Alamat': 'Banyurip Alit Gg 5', 'Pendidikan Terakhir': 'S1 Bahasa Arab', 'Nama Sekolah / Universitas': 'UIN Gusdur', 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 85884446030, 'Dinyatakan': 'Belum Lulus'}, {'No': 51, 'Tanggal': Timestamp('2025-05-31 00:00:00'), 'Tgl Lahir': Timestamp('1995-11-24 00:00:00'), 'Nama': 'M. Zidnie Arzaq, S.Ag', 'Alamat': 'Surobayan', 'Pendidikan Terakhir': 'S1', 'Nama Sekolah / Universitas': "Ma'had Aly Lirboy", 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 85854368894, 'Dinyatakan': 'Belum Lulus'}, {'No': 52, 'Tanggal': Timestamp('2025-05-27 00:00:00'), 'Tgl Lahir': Timestamp('2025-05-27 00:00:00'), 'Nama': 'Muhammad Ridho', 'Alamat': 'Keputran Gg 5', 'Pendidikan Terakhir': 'Ponpes', 'Nama Sekolah / Universitas': "Ma'had Islam Pekalongan", 'Melamar Sebagai Guru': 'B. Arab', 'No Hp': 85183982349, 'Dinyatakan': 'Belum Lulus'}, {'No': 53, 'Tanggal': Timestamp('2025-05-10 00:00:00'), 'Tgl Lahir': Timestamp('1983-08-15 00:00:00'), 'Nama': 'Maknunailiyana, S.Pd', 'Alamat': 'Medono', 'Pendidikan Terakhir': 'S1 PAUD', 'Nama Sekolah / Universitas': 'UNIV terbuka', 'Melamar Sebagai Guru': 'RAM / TK', 'No Hp': 82257022781, 'Dinyatakan': 'Belum Lulus'}, {'No': 54, 'Tanggal': Timestamp('2025-05-30 00:00:00'), 'Tgl Lahir': Timestamp('1999-01-31 00:00:00'), 'Nama': 'Nabilatul Khusna, S.Ag', 'Alamat': 'Kradenan Gg 9', 'Pendidikan Terakhir': "S1 Ilmu Al-Qur'an & Tafsir", 'Nama Sekolah / Universitas': 'UIN Gusdur', 'Melamar Sebagai Guru': 'RAM / TK', 'No Hp': 83123662164, 'Dinyatakan': 'Belum Lulus'}, {'No': 55, 'Tanggal': Timestamp('2025-05-26 00:00:00'), 'Tgl Lahir': Timestamp('1998-05-05 00:00:00'), 'Nama': 'Nur Hidayati, S.Ag', 'Alamat': 'Jenggot Gg 5', 'Pendidikan Terakhir': 'S1 Tasawuf', 'Nama Sekolah / Universitas': 'IAIN Pekalongan', 'Melamar Sebagai Guru': 'RAM / TK', 'No Hp': 85888069576, 'Dinyatakan': 'Belum Lulus'}, {'No': 56, 'Tanggal': Timestamp('2025-05-30 00:00:00'), 'Tgl Lahir': Timestamp('1993-05-11 00:00:00'), 'Nama': 'Riskiyah, S.Pd', 'Alamat': 'Griya Wahid Asri Kertoharjo', 'Pendidikan Terakhir': 'S1 PAI', 'Nama Sekolah / Universitas': 'STAIN Pekalongan', 'Melamar Sebagai Guru': 'RAM / TK', 'No Hp': 81326576732, 'Dinyatakan': 'Belum Lulus'}, {'No': 57, 'Tanggal': Timestamp('2025-05-31 00:00:00'), 'Tgl Lahir': Timestamp('1993-02-02 00:00:00'), 'Nama': 'Istighosah, S.Pd', 'Alamat': 'Simbang Kulon', 'Pendidikan Terakhir': 'S1 PAI', 'Nama Sekolah / Universitas': 'IAIN Pekalongan', 'Melamar Sebagai Guru': 'RAM / TK', 'No Hp': 895411785960, 'Dinyatakan': 'Belum Lulus'}, {'No': 58, 'Tanggal': Timestamp('2025-05-30 00:00:00'), 'Tgl Lahir': Timestamp('2000-09-21 00:00:00'), 'Nama': 'Nailu Syarifah, S.Pd', 'Alamat': 'Jeruksari Tirto', 'Pendidikan Terakhir': 'S1 MPI', 'Nama Sekolah / Universitas': 'UIN Walisongo', 'Melamar Sebagai Guru': 'RAM / TK', 'No Hp': 85867896281, 'Dinyatakan': 'Belum Lulus'}, {'No': 59, 'Tanggal': Timestamp('2025-05-30 00:00:00'), 'Tgl Lahir': Timestamp('2000-08-17 00:00:00'), 'Nama': 'Fadilah, S.Pd', 'Alamat': 'Simbang Kulon Gg 5', 'Pendidikan Terakhir': 'S1 Pend B Inggris', 'Nama Sekolah / Universitas': 'UIN Gusdur', 'Melamar Sebagai Guru': 'RAM / TK', 'No Hp': 89502014857, 'Dinyatakan': 'Belum Lulus'}, {'No': 60, 'Tanggal': Timestamp('2025-05-31 00:00:00'), 'Tgl Lahir': Timestamp('2003-08-24 00:00:00'), 'Nama': 'Violina Alfa Zuhra, S.Pd', 'Alamat': 'Pakumbulan', 'Pendidikan Terakhir': 'S1 Pend B Inggris', 'Nama Sekolah / Universitas': 'UIN Gusdur', 'Melamar Sebagai Guru': 'RAM / TK', 'No Hp': 82137598724, 'Dinyatakan': 'Belum Lulus'}, {'No': 61, 'Tanggal': Timestamp('2025-05-31 00:00:00'), 'Tgl Lahir': Timestamp('2000-05-21 00:00:00'), 'Nama': 'Nur Alivia Vista', 'Alamat': 'Simbang Kulon Gg 3', 'Pendidikan Terakhir': 'S1 Tadris Matematika', 'Nama Sekolah / Universitas': 'IAIN Pekalongan', 'Melamar Sebagai Guru': 'RAM / TK', 'No Hp': 8812913233, 'Dinyatakan': 'Belum Lulus'}, {'No': 62, 'Tanggal': Timestamp('2025-05-31 00:00:00'), 'Tgl Lahir': Timestamp('1999-04-06 00:00:00'), 'Nama': 'Sona, S.Pd', 'Alamat': 'Pakumbulan', 'Pendidikan Terakhir': 'S1 Bahasa Indonesia', 'Nama Sekolah / Universitas': 'UNIKAL', 'Melamar Sebagai Guru': 'RAM / TK', 'No Hp': 85290958495, 'Dinyatakan': 'Belum Lulus'}, {'No': 63, 'Tanggal': Timestamp('2025-05-25 00:00:00'), 'Tgl Lahir': Timestamp('2001-07-10 00:00:00'), 'Nama': 'Milyani Rizqiyanah, S.Pd', 'Alamat': 'Jl Pelita Buaran', 'Pendidikan Terakhir': 'S1 PAI', 'Nama Sekolah / Universitas': 'UIN Gusdur', 'Melamar Sebagai Guru': 'RAM / TK', 'No Hp': 85729180856, 'Dinyatakan': 'Belum Lulus'}, {'No': 64, 'Tanggal': Timestamp('2025-05-28 00:00:00'), 'Tgl Lahir': Timestamp('2003-03-13 00:00:00'), 'Nama': 'Nadisa Milladunka Rosyada, S.Pd', 'Alamat': 'Jenggot', 'Pendidikan Terakhir': 'S1 PGMI', 'Nama Sekolah / Universitas': 'UIN Gusdur', 'Melamar Sebagai Guru': 'RAM / TK', 'No Hp': 85642546257, 'Dinyatakan': 'Belum Lulus'}, {'No': 65, 'Tanggal': Timestamp('2025-05-27 00:00:00'), 'Tgl Lahir': Timestamp('2001-02-05 00:00:00'), 'Nama': "Qurrotu A'yun, S.Ag", 'Alamat': 'Medono', 'Pendidikan Terakhir': 'S1 Ilmu Hadits', 'Nama Sekolah / Universitas': 'UIN Gusdur', 'Melamar Sebagai Guru': 'RAM / TK', 'No Hp': 85742063532, 'Dinyatakan': 'Belum Lulus'}, {'No': 66, 'Tanggal': Timestamp('2025-05-15 00:00:00'), 'Tgl Lahir': Timestamp('1993-03-05 00:00:00'), 'Nama': 'Nadiatul Akmalia, A.Md', 'Alamat': 'Simbang Kulon Gg 5', 'Pendidikan Terakhir': 'D3 Manajemen Informatika', 'Nama Sekolah / Universitas': 'STMIK Widya Pratama', 'Melamar Sebagai Guru': 'RAM / TK', 'No Hp': 85601597585, 'Dinyatakan': 'Belum Lulus'}, {'No': 67, 'Tanggal': Timestamp('2025-05-24 00:00:00'), 'Tgl Lahir': Timestamp('2001-11-04 00:00:00'), 'Nama': 'Anggi Alawiyah, S.Pd', 'Alamat': 'Wonoyoso ', 'Pendidikan Terakhir': 'S1 PAI', 'Nama Sekolah / Universitas': 'UIN Gusdur', 'Melamar Sebagai Guru': 'RAM / TK', 'No Hp': 85878916640, 'Dinyatakan': 'Belum Lulus'}, {'No': 68, 'Tanggal': Timestamp('2025-05-25 00:00:00'), 'Tgl Lahir': Timestamp('1993-05-28 00:00:00'), 'Nama': 'Nur Aliyah, S.Pd', 'Alamat': 'Kauman, Pkl', 'Pendidikan Terakhir': 'S1 PAI', 'Nama Sekolah / Universitas': 'UIN Gusdur', 'Melamar Sebagai Guru': 'RAM / TK', 'No Hp': 85600587933, 'Dinyatakan': 'Belum Lulus'}, {'No': 69, 'Tanggal': Timestamp('2025-05-27 00:00:00'), 'Tgl Lahir': Timestamp('2002-07-25 00:00:00'), 'Nama': 'Zulia Azizah, S.Pd', 'Alamat': 'Simbang Kulon Gg 2', 'Pendidikan Terakhir': 'S1 Bahasa Arab', 'Nama Sekolah / Universitas': 'UIN Gusdur', 'Melamar Sebagai Guru': 'RAM / TK', 'No Hp': 85642489250, 'Dinyatakan': 'Belum Lulus'}, {'No': 70, 'Tanggal': Timestamp('2025-05-16 00:00:00'), 'Tgl Lahir': Timestamp('2001-10-28 00:00:00'), 'Nama': 'Dilla Anggriyani, S.Pd', 'Alamat': 'Lebo Warungasem', 'Pendidikan Terakhir': 'S1 PAI', 'Nama Sekolah / Universitas': 'UIN Gusdur', 'Melamar Sebagai Guru': 'RAM / TK', 'No Hp': 882006692767, 'Dinyatakan': 'Belum Lulus'}, {'No': 71, 'Tanggal': Timestamp('2025-05-13 00:00:00'), 'Tgl Lahir': Timestamp('2002-07-10 00:00:00'), 'Nama': 'Novi Andriani', 'Alamat': 'Simbang Kulon Gang 4', 'Pendidikan Terakhir': 'S1 PAI (Masih Skripsi)', 'Nama Sekolah / Universitas': 'UIN Gusdur ', 'Melamar Sebagai Guru': 'RAM / TK', 'No Hp': 85600508846, 'Dinyatakan': 'Belum Lulus'}, {'No': 72, 'Tanggal': Timestamp('2025-05-15 00:00:00'), 'Tgl Lahir': Timestamp('2002-03-25 00:00:00'), 'Nama': 'Atiyatul Ilmiyah', 'Alamat': 'Kebulen Sapuro', 'Pendidikan Terakhir': 'S1 PAI masih semster 8', 'Nama Sekolah / Universitas': 'UIN Gusdur', 'Melamar Sebagai Guru': 'RAM / TK', 'No Hp': 85700832746, 'Dinyatakan': 'Belum Lulus'}, {'No': 73, 'Tanggal': Timestamp('2025-05-13 00:00:00'), 'Tgl Lahir': Timestamp('2001-09-16 00:00:00'), 'Nama': 'Putri Kumala, S.Pd', 'Alamat': 'Gumawang Wiradesa', 'Pendidikan Terakhir': 'S1 B Arab + Ponpes', 'Nama Sekolah / Universitas': 'STAINI Bogor', 'Melamar Sebagai Guru': 'RAM / TK', 'No Hp': 81935565707, 'Dinyatakan': 'Belum Lulus'}, {'No': 74, 'Tanggal': Timestamp('2025-05-15 00:00:00'), 'Tgl Lahir': Timestamp('2001-11-10 00:00:00'), 'Nama': 'Nur Rahmah,S.Pd', 'Alamat': 'Kradenan Gg 5', 'Pendidikan Terakhir': 'S1 Pend B Inggris', 'Nama Sekolah / Universitas': 'UIN Gusdur', 'Melamar Sebagai Guru': 'RAM / TK', 'No Hp': 87745326558, 'Dinyatakan': 'Belum Lulus'}, {'No': 75, 'Tanggal': Timestamp('2025-05-30 00:00:00'), 'Tgl Lahir': Timestamp('1999-12-20 00:00:00'), 'Nama': 'Musfiroh, S.Pd', 'Alamat': 'Krapyak Kidul', 'Pendidikan Terakhir': 'S1 Tadris Matematika', 'Nama Sekolah / Universitas': 'IAIN Pekalongan', 'Melamar Sebagai Guru': 'Matematika', 'No Hp': 81393808608, 'Dinyatakan': 'Belum Lulus'}, {'No': 76, 'Tanggal': Timestamp('2025-05-30 00:00:00'), 'Tgl Lahir': Timestamp('1989-03-14 00:00:00'), 'Nama': 'Lia Hanifah, S.Pd', 'Alamat': 'Kradenan Gg 3', 'Pendidikan Terakhir': 'S1 Matematika', 'Nama Sekolah / Universitas': 'UNIKAL', 'Melamar Sebagai Guru': 'Matematika', 'No Hp': 82322905090, 'Dinyatakan': 'Belum Lulus'}, {'No': 77, 'Tanggal': Timestamp('2025-05-29 00:00:00'), 'Tgl Lahir': Timestamp('2003-08-08 00:00:00'), 'Nama': "Lu'lu'ul Maknunah, S.Pd", 'Alamat': 'Jatimalang, Sragi', 'Pendidikan Terakhir': 'S1 Tadris Matematika', 'Nama Sekolah / Universitas': 'UIN Gusdur', 'Melamar Sebagai Guru': 'Matematika', 'No Hp': 85943013142, 'Dinyatakan': 'Belum Lulus'}, {'No': 78, 'Tanggal': Timestamp('2025-05-29 00:00:00'), 'Tgl Lahir': Timestamp('1995-10-14 00:00:00'), 'Nama': 'Shiyanatussuhailah, S.Pd', 'Alamat': 'Krapyak Lor', 'Pendidikan Terakhir': 'S1 Matematika', 'Nama Sekolah / Universitas': 'UNNES Semarang', 'Melamar Sebagai Guru': 'Matematika', 'No Hp': 895423528787, 'Dinyatakan': 'Belum Lulus'}, {'No': 79, 'Tanggal': Timestamp('2025-05-28 00:00:00'), 'Tgl Lahir': Timestamp('1999-01-20 00:00:00'), 'Nama': 'Nur Iklilah, S.Pd', 'Alamat': 'Simbang Kulon', 'Pendidikan Terakhir': 'S1 Matematika', 'Nama Sekolah / Universitas': 'UIN Gusdur', 'Melamar Sebagai Guru': 'Matematika', 'No Hp': 85866029836, 'Dinyatakan': 'Belum Lulus'}];
-    function checkStatus() {
-        const input = document.getElementById('phoneInput').value.trim();
-        const resultDiv = document.getElementById('result');
-        const found = data.find(item => item['No Hp'].replace(/^0|^62/, '') === input.replace(/^0|^62/, ''));
+    <hr>
 
-        if (found) {
-            let statusClass = found.Dinyatakan.includes("Lulus") ? "lulus" : "tidak-lulus";
-            let extra = found.Dinyatakan.includes("Lulus") ? "<br>Silakan hubungi admin WA: <a href='https://wa.me/6285134465945'>085134465945</a>" : "";
-            resultDiv.innerHTML = `
-                <strong>Nama:</strong> ${found.Nama}<br>
-                <strong>Alamat:</strong> ${found.Alamat}<br>
-                <strong>Pendidikan Terakhir:</strong> ${found["Pendidikan Terakhir"]}<br>
-                <strong>Melamar Sebagai:</strong> ${found["Melamar Sebagai Guru"]}<br>
-                <strong>Status:</strong> <span class="${statusClass}">${found.Dinyatakan}</span>${extra}
-            `;
-        } else {
-            resultDiv.innerHTML = "<span class='tidak-lulus'>Nomor HP tidak ditemukan.</span>";
-        }
-        resultDiv.style.display = "block";
+    <label for="phone">Masukkan Nomor HP Terdaftar:</label>
+    <input type="text" id="phone" placeholder="Contoh: 085705019925" />
+    <button onclick="cekPelamar()">Cek</button>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    const pelamar = [
+  {
+    "nama": "Nurul Amalia",
+    "hp": "85705019925",
+    "alamat": "Kertijayan Gg 13",
+    "pendidikan": "MA",
+    "sekolah": "MAS Simbang Kulon",
+    "posisi": "Al Qur'an",
+    "status": "Lulus Tahap Selanjutnya"
+  },
+  {
+    "nama": "Alma Rosalia Hilda",
+    "hp": "895414448997",
+    "alamat": "Pakisputih, kdw",
+    "pendidikan": "Ponpes",
+    "sekolah": "Al Fadlillah  - Kudus",
+    "posisi": "Al Qur'an",
+    "status": "Lulus Tahap Selanjutnya"
+  },
+  {
+    "nama": "Uliya Dzikriya, S.S",
+    "hp": "85641295507",
+    "alamat": "Simbang Kulon Gg 3",
+    "pendidikan": "S1 Sastra Inggris",
+    "sekolah": "UNNES Semarang",
+    "posisi": "Al Qur'an",
+    "status": "Lulus Tahap Selanjutnya"
+  },
+  {
+    "nama": "Alisah Qotrun Nada, S.Ag",
+    "hp": "81542101681",
+    "alamat": "Simbang Kulon Gg 3",
+    "pendidikan": "S1 Ilmu Al-Qur'an & Tafsir",
+    "sekolah": "IIQ Yogyakarta",
+    "posisi": "Al Qur'an",
+    "status": "Lulus Tahap Selanjutnya"
+  },
+  {
+    "nama": "M. Irfan Maulana",
+    "hp": "85700445300",
+    "alamat": "Kuripan Yosorejo",
+    "pendidikan": "S1 Bahasa Arab",
+    "sekolah": "STAINI Bogor",
+    "posisi": "B. Arab",
+    "status": "Lulus Tahap Selanjutnya"
+  },
+  {
+    "nama": "Reza Arif Maulana, S.Pd",
+    "hp": "89692116116",
+    "alamat": "Wonoyoso Gg 4",
+    "pendidikan": "S1 Bahasa Arab",
+    "sekolah": "UIN Gusdur",
+    "posisi": "B. Arab",
+    "status": "Lulus Tahap Selanjutnya"
+  },
+  {
+    "nama": "Ahmad Zakirin, S.Pd",
+    "hp": "895612959036",
+    "alamat": "Paweden Gg 6",
+    "pendidikan": "S1 Bahasa Arab",
+    "sekolah": "Ma'had Aly Darul Falah Amtsilati",
+    "posisi": "B. Arab",
+    "status": "Lulus Tahap Selanjutnya"
+  },
+  {
+    "nama": "Muhammad Mursyid, S.Pd",
+    "hp": "85326911833",
+    "alamat": "Proto Kdw",
+    "pendidikan": "S1 Bahasa Arab",
+    "sekolah": "UIN Gusdur",
+    "posisi": "B. Arab",
+    "status": "Lulus Tahap Selanjutnya"
+  },
+  {
+    "nama": "Muhammad Irsyad, S.Pd",
+    "hp": "85642922336",
+    "alamat": "Coprayan, Buaran",
+    "pendidikan": "S1 Bahasa Arab",
+    "sekolah": "UIN Gusdur",
+    "posisi": "B. Arab",
+    "status": "Lulus Tahap Selanjutnya"
+  },
+  {
+    "nama": "M. Burhanudin, Lc. M.A",
+    "hp": "81229768053",
+    "alamat": "Karangjati Wides",
+    "pendidikan": "S2 Syariah",
+    "sekolah": "UNIV Al Ahgaf Yaman",
+    "posisi": "B. Arab",
+    "status": "Lulus Tahap Selanjutnya"
+  },
+  {
+    "nama": "Akhmad Wildan, S.Pd",
+    "hp": "85640642561",
+    "alamat": "Samborejo Tirto",
+    "pendidikan": "S1 B Arab",
+    "sekolah": "STAIN PKL",
+    "posisi": "B. Arab",
+    "status": "Lulus Tahap Selanjutnya"
+  },
+  {
+    "nama": "Ahmad Khafidin, S.Pd. M.Pd",
+    "hp": "85838963474",
+    "alamat": "Sidodadi Kdw",
+    "pendidikan": "S1 B Arab",
+    "sekolah": "UIN Walisongo",
+    "posisi": "B. Arab",
+    "status": "Lulus Tahap Selanjutnya"
+  },
+  {
+    "nama": "Khoirul Umam Muzaki",
+    "hp": "81564702049",
+    "alamat": "Salakbrojo",
+    "pendidikan": "S2",
+    "sekolah": "UIN Gusdur",
+    "posisi": "B. Arab",
+    "status": "Lulus Tahap Selanjutnya"
+  },
+  {
+    "nama": "Muhammad Fijaj Farkhani Faza, S.Pd.",
+    "hp": "87737203222",
+    "alamat": "Kradenan Gg 1",
+    "pendidikan": "S1 B Arab",
+    "sekolah": "UIN Walisongo",
+    "posisi": "B. Arab",
+    "status": "Lulus Tahap Selanjutnya"
+  },
+  {
+    "nama": "Muhammad Thoriqul Firdaus",
+    "hp": "87871581418",
+    "alamat": "Simbang Wetan",
+    "pendidikan": "S1 B Arab",
+    "sekolah": "UIN Gusdur",
+    "posisi": "B. Arab",
+    "status": "Lulus Tahap Selanjutnya"
+  },
+  {
+    "nama": "Muchammad Fikro Shofi, S.Pd",
+    "hp": "85808160816",
+    "alamat": "Krapyak Kidul Gg 5",
+    "pendidikan": "S1 B Arab + Ponpes",
+    "sekolah": "UIN Gusdur",
+    "posisi": "B. Arab",
+    "status": "Lulus Tahap Selanjutnya"
+  },
+  {
+    "nama": "Muhammad Fatkhul Ulum, S.Pd",
+    "hp": "85870060256",
+    "alamat": "Subah Batang",
+    "pendidikan": "S1 B Arab",
+    "sekolah": "UIN Gusdur",
+    "posisi": "B. Arab",
+    "status": "Lulus Tahap Selanjutnya"
+  },
+  {
+    "nama": "Muhammad Muslih, S.Pd",
+    "hp": "85641500378",
+    "alamat": "Kradenan Gg 6",
+    "pendidikan": "S1 B Arab",
+    "sekolah": "UIN Gusdur",
+    "posisi": "B. Arab",
+    "status": "Lulus Tahap Selanjutnya"
+  },
+  {
+    "nama": "M. Barul Fatikhin, S.Pd",
+    "hp": "85640218933",
+    "alamat": "Kraton Pekalongan",
+    "pendidikan": "S1 B Arab",
+    "sekolah": "UIN Gusdur",
+    "posisi": "B. Arab",
+    "status": "Lulus Tahap Selanjutnya"
+  },
+  {
+    "nama": "Khilmi Hidayatulloh, S.Pd",
+    "hp": "895385225970",
+    "alamat": "Banyurip Ageng Gg 3C",
+    "pendidikan": "S1 B Arab",
+    "sekolah": "UIN Walisongo",
+    "posisi": "B. Arab",
+    "status": "Lulus Tahap Selanjutnya"
+  },
+  {
+    "nama": "M. As'ad Lahiq, S.Pd",
+    "hp": "81542554956",
+    "alamat": "Banyurip Alit",
+    "pendidikan": "S1 B Arab",
+    "sekolah": "UNSIQ Wonosobo",
+    "posisi": "B. Arab",
+    "status": "Lulus Tahap Selanjutnya"
+  },
+  {
+    "nama": "Muhammad Miftahudin, S.Pd",
+    "hp": "85641210363",
+    "alamat": "Banyurip Alit Gg 5",
+    "pendidikan": "S2 Bahasa Arab",
+    "sekolah": "UIN Gusdur",
+    "posisi": "B. Arab",
+    "status": "Lulus Tahap Selanjutnya"
+  },
+  {
+    "nama": "Khotibul Umam, S.Hum",
+    "hp": "85713886055",
+    "alamat": "Banyurip Alit Gg 3B",
+    "pendidikan": "S1 Bahasa Arab",
+    "sekolah": "UIN Maulana Malik Ibrahim Malang",
+    "posisi": "B. Arab",
+    "status": "Lulus Tahap Selanjutnya"
+  },
+  {
+    "nama": "Nur Saidah, S.Pd",
+    "hp": "85868536830",
+    "alamat": "Yosorejo Gg 4",
+    "pendidikan": "S1 PAUD",
+    "sekolah": "UNIV Terbuka",
+    "posisi": "RA / TK",
+    "status": "Lulus Tahap Selanjutnya"
+  },
+  {
+    "nama": "Chasanal Irnina Aqnah",
+    "hp": "85642907704",
+    "alamat": "Jenggot Gg 2",
+    "pendidikan": "S1 PAUD",
+    "sekolah": "UIN Gusdur",
+    "posisi": "RA / TK",
+    "status": "Lulus Tahap Selanjutnya"
+  },
+  {
+    "nama": "Ponco Puji Lestari, S.Pd",
+    "hp": "82314825917",
+    "alamat": "Tangkil Tengah",
+    "pendidikan": "S1 PAUD",
+    "sekolah": "Univ Terbuka",
+    "posisi": "RA / TK",
+    "status": "Lulus Tahap Selanjutnya"
+  },
+  {
+    "nama": "Saroro Dewi Asmo Ranti, S.Pd",
+    "hp": "85713358578",
+    "alamat": "Perum Karanganyar Tirto",
+    "pendidikan": "S1 PAUD",
+    "sekolah": "IAIN Pekalongan",
+    "posisi": "RA / TK",
+    "status": "Lulus Tahap Selanjutnya"
+  },
+  {
+    "nama": "Khoirul Imam, S.Pd",
+    "hp": "85601362663",
+    "alamat": "menjangan bojong",
+    "pendidikan": "S1 Tadris Matematika",
+    "sekolah": "UIN Gusdur",
+    "posisi": "Matematika",
+    "status": "Lulus Tahap Selanjutnya"
+  },
+  {
+    "nama": "Moh. Fazal Muttaqun, S.Pd",
+    "hp": "85642947581",
+    "alamat": "Wiroditan Bojong",
+    "pendidikan": "S1 Matematika",
+    "sekolah": "UNIKAL",
+    "posisi": "Matematika",
+    "status": "Lulus Tahap Selanjutnya"
+  },
+  {
+    "nama": "Muhammad Zakaria Isna Khauli, S.Pd",
+    "hp": "85826213414",
+    "alamat": "Banyurip Alit Gg 5",
+    "pendidikan": "S1 Matematika",
+    "sekolah": "UNIKAL",
+    "posisi": "Matematika",
+    "status": "Lulus Tahap Selanjutnya"
+  },
+  {
+    "nama": "Permadi Pramumita, S.Pd",
+    "hp": "8980487426",
+    "alamat": "Karangsari Karanganyar",
+    "pendidikan": "S1 Matematika",
+    "sekolah": "UIN Gusdur",
+    "posisi": "Matematika",
+    "status": "Lulus Tahap Selanjutnya"
+  },
+  {
+    "nama": "M. Bagus Al Basyari, S.Pd",
+    "hp": "85866066630",
+    "alamat": "Paesan Kebumen",
+    "pendidikan": "S1 Matematika",
+    "sekolah": "UNNES",
+    "posisi": "Matematika",
+    "status": "Lulus Tahap Selanjutnya"
+  },
+  {
+    "nama": "M. Khusnun Ni'am, S.Pd",
+    "hp": "83827087473",
+    "alamat": "Setono Gg 4",
+    "pendidikan": "S1 Matematika",
+    "sekolah": "UIN Gusdur",
+    "posisi": "Matematika",
+    "status": "Lulus Tahap Selanjutnya"
+  },
+  {
+    "nama": "Mukhammad Eko Setiawan, S.Pd",
+    "hp": "85225239897",
+    "alamat": "Pangkah Karangdadap",
+    "pendidikan": "S1 Tadris Matematika",
+    "sekolah": "UIN Gusdur",
+    "posisi": "Matematika",
+    "status": "Lulus Tahap Selanjutnya"
+  },
+  {
+    "nama": "M. Furqon Zaenudin, S.Ag",
+    "hp": "81237680146",
+    "alamat": "Pringlangu Gg 8",
+    "pendidikan": "S1 Ilmu Al-Qur'an & Tafsir",
+    "sekolah": "UNSIQ Wonosobo",
+    "posisi": "B. Arab",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Mukhammad Fatkhullah, S.Ag",
+    "hp": "82132952190",
+    "alamat": "Banjiran Warungasem",
+    "pendidikan": "S1 Ilmu Al-Qur'an & Tafsir",
+    "sekolah": "UIN Mataram",
+    "posisi": "B. Arab",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "A. Ittaqi Abadan, S.Pd",
+    "hp": "82313444971",
+    "alamat": "Karanganyar Tirto",
+    "pendidikan": "S1 PAI",
+    "sekolah": "IAIN Pekalongan",
+    "posisi": "B. Arab",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Muhsinin, S.Ag",
+    "hp": "85900362786",
+    "alamat": "Kradenan Gg 4",
+    "pendidikan": "S1 Fiqih Ushul Fiqih",
+    "sekolah": "Ma'had Aly Lirboyo",
+    "posisi": "B. Arab",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "M. Husni Mubarok, S.Ag",
+    "hp": "82322939277",
+    "alamat": "Sapugarut Gg 6",
+    "pendidikan": "S1 PAI Ushul Fiqih",
+    "sekolah": "Ma'had Aly Lirboyo",
+    "posisi": "B. Arab",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Ferry Khusnil Arief, S.Ag",
+    "hp": "85856531594",
+    "alamat": "Banyurip Ageng",
+    "pendidikan": "S1 PAI Ushul Fiqih",
+    "sekolah": "Ma'had Aly Lirboyo",
+    "posisi": "B. Arab",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Ahmad Farid, S.Ag",
+    "hp": "85702473702",
+    "alamat": "Karangdowo, Kdw",
+    "pendidikan": "S1 Fiqih Ushul Fiqih",
+    "sekolah": "Ma'had Aly Lirboyo",
+    "posisi": "B. Arab",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Muhammad Tahta Dzilir Rohman, S.Ag",
+    "hp": "85899008025",
+    "alamat": "Degayu, Pkl Utara",
+    "pendidikan": "S1 Tasawuf",
+    "sekolah": "Ma'had Aly Sarang Rembang",
+    "posisi": "B. Arab",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Muhammad Izzulhaq, S.Ag",
+    "hp": "81578177423",
+    "alamat": "Medono",
+    "pendidikan": "S1 Fiqih Ushul Fiqih",
+    "sekolah": "Ma'had Aly Lirboyo",
+    "posisi": "B. Arab",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Nurul Falah, S.Pd",
+    "hp": "85329994570",
+    "alamat": "Perum Graha Naya Kampil",
+    "pendidikan": "S1 PAI",
+    "sekolah": "IAIN Pekalongan",
+    "posisi": "B. Arab",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Dina Taflilah, S.Pd",
+    "hp": "85741766073",
+    "alamat": "Bligo",
+    "pendidikan": "S1 B Arab",
+    "sekolah": "UIN Walisongo",
+    "posisi": "B. Arab",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Jazilatul Athiyah, S.Hum",
+    "hp": "88980866970",
+    "alamat": "Simbang Kulon Gg 4",
+    "pendidikan": "S1 B. Arab",
+    "sekolah": "UIN Salatiga",
+    "posisi": "B. Arab",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Farah Anjalina, S.Ag",
+    "hp": "85724439693",
+    "alamat": "Banjiran Batang",
+    "pendidikan": "S1 B Arab",
+    "sekolah": "Ma'had Aly Darul Falah Amtsilati",
+    "posisi": "B. Arab",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Ahmad Muhaimin, S.Pd",
+    "hp": "85642579220",
+    "alamat": "Wonokerto, Wides",
+    "pendidikan": "S1 B Arab",
+    "sekolah": "STAINI Bogor",
+    "posisi": "B. Arab",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Silvia Qothrunnada, S.Pd",
+    "hp": "81548622119",
+    "alamat": "Banyurip Alit 3B",
+    "pendidikan": "S1 Bahasa Arab",
+    "sekolah": "UIN Gusdur",
+    "posisi": "B. Arab",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Sofyan Atsauri, S.Pd",
+    "hp": "85884446030",
+    "alamat": "Banyurip Alit Gg 5",
+    "pendidikan": "S1 Bahasa Arab",
+    "sekolah": "UIN Gusdur",
+    "posisi": "B. Arab",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "M. Zidnie Arzaq, S.Ag",
+    "hp": "85854368894",
+    "alamat": "Surobayan",
+    "pendidikan": "S1",
+    "sekolah": "Ma'had Aly Lirboy",
+    "posisi": "B. Arab",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Muhammad Ridho",
+    "hp": "85183982349",
+    "alamat": "Keputran Gg 5",
+    "pendidikan": "Ponpes",
+    "sekolah": "Ma'had Islam Pekalongan",
+    "posisi": "B. Arab",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Maknunailiyana, S.Pd",
+    "hp": "82257022781",
+    "alamat": "Medono",
+    "pendidikan": "S1 PAUD",
+    "sekolah": "UNIV terbuka",
+    "posisi": "RAM / TK",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Nabilatul Khusna, S.Ag",
+    "hp": "83123662164",
+    "alamat": "Kradenan Gg 9",
+    "pendidikan": "S1 Ilmu Al-Qur'an & Tafsir",
+    "sekolah": "UIN Gusdur",
+    "posisi": "RAM / TK",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Nur Hidayati, S.Ag",
+    "hp": "85888069576",
+    "alamat": "Jenggot Gg 5",
+    "pendidikan": "S1 Tasawuf",
+    "sekolah": "IAIN Pekalongan",
+    "posisi": "RAM / TK",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Riskiyah, S.Pd",
+    "hp": "81326576732",
+    "alamat": "Griya Wahid Asri Kertoharjo",
+    "pendidikan": "S1 PAI",
+    "sekolah": "STAIN Pekalongan",
+    "posisi": "RAM / TK",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Istighosah, S.Pd",
+    "hp": "895411785960",
+    "alamat": "Simbang Kulon",
+    "pendidikan": "S1 PAI",
+    "sekolah": "IAIN Pekalongan",
+    "posisi": "RAM / TK",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Nailu Syarifah, S.Pd",
+    "hp": "85867896281",
+    "alamat": "Jeruksari Tirto",
+    "pendidikan": "S1 MPI",
+    "sekolah": "UIN Walisongo",
+    "posisi": "RAM / TK",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Fadilah, S.Pd",
+    "hp": "89502014857",
+    "alamat": "Simbang Kulon Gg 5",
+    "pendidikan": "S1 Pend B Inggris",
+    "sekolah": "UIN Gusdur",
+    "posisi": "RAM / TK",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Violina Alfa Zuhra, S.Pd",
+    "hp": "82137598724",
+    "alamat": "Pakumbulan",
+    "pendidikan": "S1 Pend B Inggris",
+    "sekolah": "UIN Gusdur",
+    "posisi": "RAM / TK",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Nur Alivia Vista",
+    "hp": "8812913233",
+    "alamat": "Simbang Kulon Gg 3",
+    "pendidikan": "S1 Tadris Matematika",
+    "sekolah": "IAIN Pekalongan",
+    "posisi": "RAM / TK",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Sona, S.Pd",
+    "hp": "85290958495",
+    "alamat": "Pakumbulan",
+    "pendidikan": "S1 Bahasa Indonesia",
+    "sekolah": "UNIKAL",
+    "posisi": "RAM / TK",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Milyani Rizqiyanah, S.Pd",
+    "hp": "85729180856",
+    "alamat": "Jl Pelita Buaran",
+    "pendidikan": "S1 PAI",
+    "sekolah": "UIN Gusdur",
+    "posisi": "RAM / TK",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Nadisa Milladunka Rosyada, S.Pd",
+    "hp": "85642546257",
+    "alamat": "Jenggot",
+    "pendidikan": "S1 PGMI",
+    "sekolah": "UIN Gusdur",
+    "posisi": "RAM / TK",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Qurrotu A'yun, S.Ag",
+    "hp": "85742063532",
+    "alamat": "Medono",
+    "pendidikan": "S1 Ilmu Hadits",
+    "sekolah": "UIN Gusdur",
+    "posisi": "RAM / TK",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Nadiatul Akmalia, A.Md",
+    "hp": "85601597585",
+    "alamat": "Simbang Kulon Gg 5",
+    "pendidikan": "D3 Manajemen Informatika",
+    "sekolah": "STMIK Widya Pratama",
+    "posisi": "RAM / TK",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Anggi Alawiyah, S.Pd",
+    "hp": "85878916640",
+    "alamat": "Wonoyoso ",
+    "pendidikan": "S1 PAI",
+    "sekolah": "UIN Gusdur",
+    "posisi": "RAM / TK",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Nur Aliyah, S.Pd",
+    "hp": "85600587933",
+    "alamat": "Kauman, Pkl",
+    "pendidikan": "S1 PAI",
+    "sekolah": "UIN Gusdur",
+    "posisi": "RAM / TK",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Zulia Azizah, S.Pd",
+    "hp": "85642489250",
+    "alamat": "Simbang Kulon Gg 2",
+    "pendidikan": "S1 Bahasa Arab",
+    "sekolah": "UIN Gusdur",
+    "posisi": "RAM / TK",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Dilla Anggriyani, S.Pd",
+    "hp": "882006692767",
+    "alamat": "Lebo Warungasem",
+    "pendidikan": "S1 PAI",
+    "sekolah": "UIN Gusdur",
+    "posisi": "RAM / TK",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Novi Andriani",
+    "hp": "85600508846",
+    "alamat": "Simbang Kulon Gang 4",
+    "pendidikan": "S1 PAI (Masih Skripsi)",
+    "sekolah": "UIN Gusdur ",
+    "posisi": "RAM / TK",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Atiyatul Ilmiyah",
+    "hp": "85700832746",
+    "alamat": "Kebulen Sapuro",
+    "pendidikan": "S1 PAI masih semster 8",
+    "sekolah": "UIN Gusdur",
+    "posisi": "RAM / TK",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Putri Kumala, S.Pd",
+    "hp": "81935565707",
+    "alamat": "Gumawang Wiradesa",
+    "pendidikan": "S1 B Arab + Ponpes",
+    "sekolah": "STAINI Bogor",
+    "posisi": "RAM / TK",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Nur Rahmah,S.Pd",
+    "hp": "87745326558",
+    "alamat": "Kradenan Gg 5",
+    "pendidikan": "S1 Pend B Inggris",
+    "sekolah": "UIN Gusdur",
+    "posisi": "RAM / TK",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Musfiroh, S.Pd",
+    "hp": "81393808608",
+    "alamat": "Krapyak Kidul",
+    "pendidikan": "S1 Tadris Matematika",
+    "sekolah": "IAIN Pekalongan",
+    "posisi": "Matematika",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Lia Hanifah, S.Pd",
+    "hp": "82322905090",
+    "alamat": "Kradenan Gg 3",
+    "pendidikan": "S1 Matematika",
+    "sekolah": "UNIKAL",
+    "posisi": "Matematika",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Lu'lu'ul Maknunah, S.Pd",
+    "hp": "85943013142",
+    "alamat": "Jatimalang, Sragi",
+    "pendidikan": "S1 Tadris Matematika",
+    "sekolah": "UIN Gusdur",
+    "posisi": "Matematika",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Shiyanatussuhailah, S.Pd",
+    "hp": "895423528787",
+    "alamat": "Krapyak Lor",
+    "pendidikan": "S1 Matematika",
+    "sekolah": "UNNES Semarang",
+    "posisi": "Matematika",
+    "status": "Belum Lulus"
+  },
+  {
+    "nama": "Nur Iklilah, S.Pd",
+    "hp": "85866029836",
+    "alamat": "Simbang Kulon",
+    "pendidikan": "S1 Matematika",
+    "sekolah": "UIN Gusdur",
+    "posisi": "Matematika",
+    "status": "Belum Lulus"
+  }
+];
+
+    function cekPelamar() {
+      const inputHp = document.getElementById("phone").value.trim().replace(/^0/, '');
+      const hasil = pelamar.find(p => p.hp.endsWith(inputHp));
+      const resultDiv = document.getElementById("result");
+
+      if (!hasil) {
+        resultDiv.innerHTML = "<p class='fail'>Data tidak ditemukan. Pastikan nomor HP sesuai dengan yang didaftarkan.</p>";
+        return;
+      }
+
+      const statusClass = hasil.status.includes("Lulus") ? "success" : "fail";
+
+      let html = `
+        <h3>Hasil Pencarian:</h3>
+        <p><strong>Nama:</strong> ${hasil.nama}</p>
+        <p><strong>Alamat:</strong> ${hasil.alamat}</p>
+        <p><strong>Pendidikan Terakhir:</strong> ${hasil.pendidikan}</p>
+        <p><strong>Universitas:</strong> ${hasil.sekolah}</p>
+        <p><strong>Melamar Sebagai Guru:</strong> ${hasil.posisi}</p>
+        <p class="${statusClass}"><strong>Status:</strong> ${hasil.status}</p>
+      `;
+
+      if (hasil.status.includes("Lulus")) {
+        html += `<p class="success">Silakan hubungi admin YMS Simbang Kulon melalui WhatsApp di <strong>085134465945</strong> untuk mengetahui jadwal seleksi selanjutnya.</p>`;
+      }
+
+      resultDiv.innerHTML = html;
     }
-
-    document.getElementById("phoneInput").addEventListener("change", checkStatus);
-</script>
+  </script>
 </body>
 </html>
